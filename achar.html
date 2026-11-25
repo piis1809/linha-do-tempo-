@@ -1,0 +1,435 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Minha Linha do Tempo</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(135deg, #071b35, #123e68, #3979ad);
+    color: white;
+}
+
+/* CABEÇALHO */
+
+header {
+    text-align: center;
+    padding: 85px 20px 75px;
+}
+
+.tag {
+    color: #9bd9ff;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 5px;
+    margin-bottom: 25px;
+}
+
+header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(42px, 6vw, 68px);
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+header h1 span {
+    color: #9bd9ff;
+}
+
+header p {
+    color: #d5edff;
+    font-size: 17px;
+    line-height: 1.9;
+}
+
+/* FRASE INICIAL */
+
+.intro {
+    text-align: center;
+    max-width: 750px;
+    margin: 0 auto 70px;
+    padding: 0 20px;
+}
+
+.intro p {
+    font-family: 'Playfair Display', serif;
+    font-size: 23px;
+    font-style: italic;
+    color: #c4e7ff;
+    line-height: 1.7;
+}
+
+/* LINHA DO TEMPO */
+
+.timeline {
+    position: relative;
+    max-width: 1050px;
+    margin: auto;
+    padding-bottom: 80px;
+}
+
+.timeline::after {
+    content: "";
+    position: absolute;
+    width: 4px;
+    background: linear-gradient(
+        to bottom,
+        #9bd9ff,
+        #54b3f0,
+        #9bd9ff
+    );
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* ITENS */
+
+.container {
+    width: 50%;
+    padding: 25px 50px;
+    position: relative;
+}
+
+.left {
+    left: 0;
+    text-align: right;
+}
+
+.right {
+    left: 50%;
+    text-align: left;
+}
+
+/* MARCADORES */
+
+.container::after {
+    content: "";
+    position: absolute;
+    width: 23px;
+    height: 23px;
+    background: #d5edff;
+    border: 5px solid #58b7f5;
+    border-radius: 50%;
+    top: 48px;
+    right: -12px;
+    z-index: 2;
+    box-shadow: 0 0 20px #80caff;
+}
+
+.right::after {
+    left: -12px;
+}
+
+/* CARTÕES */
+
+.content {
+    background: rgba(5, 26, 52, 0.65);
+    border: 1px solid rgba(155, 217, 255, 0.4);
+    border-radius: 22px;
+    padding: 35px;
+    box-shadow: 0 12px 35px rgba(0,0,0,0.2);
+    transition: 0.3s ease;
+}
+
+.content:hover {
+    transform: translateY(-7px);
+    background: rgba(10, 48, 85, 0.9);
+    border-color: #9bd9ff;
+}
+
+/* CONTEÚDO DOS CARTÕES */
+
+.number {
+    color: #80caff;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    margin-bottom: 15px;
+}
+
+.icon {
+    font-size: 34px;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.content h2 {
+    font-family: 'Playfair Display', serif;
+    color: #ffffff;
+    font-size: 39px;
+    margin-bottom: 10px;
+}
+
+.content h3 {
+    color: #9bd9ff;
+    font-size: 17px;
+    font-weight: 700;
+    margin-bottom: 18px;
+    line-height: 1.5;
+}
+
+.content p {
+    color: #d5e8f8;
+    font-size: 15px;
+    line-height: 2;
+}
+
+/* RODAPÉ */
+
+footer {
+    background: rgba(4, 22, 44, 0.7);
+    text-align: center;
+    padding: 65px 20px;
+    border-top: 1px solid rgba(155,217,255,0.2);
+}
+
+footer .heart {
+    font-size: 35px;
+    margin-bottom: 20px;
+}
+
+footer h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    color: #bde5ff;
+    margin-bottom: 15px;
+}
+
+footer p {
+    font-size: 15px;
+    color: #d5edff;
+    line-height: 1.8;
+}
+
+/* CELULAR */
+
+@media(max-width: 700px) {
+
+    header {
+        padding: 60px 20px;
+    }
+
+    .timeline::after {
+        left: 17px;
+    }
+
+    .container,
+    .left,
+    .right {
+        width: 100%;
+        left: 0;
+        padding: 20px 15px 20px 55px;
+        text-align: left;
+    }
+
+    .container::after,
+    .right::after {
+        left: 5px;
+        right: auto;
+    }
+
+    .content {
+        padding: 27px;
+    }
+
+    .content h2 {
+        font-size: 34px;
+    }
+
+    .content p {
+        font-size: 14px;
+    }
+
+    .intro p {
+        font-size: 19px;
+    }
+
+    footer h2 {
+        font-size: 26px;
+    }
+}
+
+/* ANIMAÇÃO */
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.content {
+    animation: aparecer 0.8s ease both;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+    <div class="tag">✦ MEUS SONHOS • MEU FUTURO ✦</div>
+
+    <h1>Minha <span>Linha do Tempo</span></h1>
+
+    <p>
+        "Um pouco sobre quem sou e o que quero conquistar no futuro." 💙
+    </p>
+
+</header>
+
+<div class="intro">
+    <p>
+        ""O futuro começa com os sonhos que temos hoje." 💙
+    </p>
+</div>
+
+<section class="timeline">
+
+    <!-- 18 ANOS -->
+
+    <div class="container left">
+        <div class="content">
+
+            <span class="icon">🦋</span>
+
+            <div class="number">01 • MEU COMEÇO</div>
+
+            <h2>18 anos</h2>
+
+            
+
+            <p>
+                Me imagino começando a faculdade de pedagogia, morando sozinha,
+                trabalhando na escola e 
+            tirando minha carteira de motorista.
+            </p>
+
+        </div>
+    </div>
+
+    <!-- 25 ANOS -->
+
+    <div class="container right">
+        <div class="content">
+
+            <span class="icon">🎓</span>
+
+            <div class="number">02 • MEUS SONHOS</div>
+
+            <h2>25 anos</h2>
+
+            
+
+            <p>
+                Me imagino formada, trabalhando em uma profissão
+                que ganhe bem, casada, ter um filho, conquistando minha casa própria, meu carro próprio e realizando meus objetivos.
+            </p>
+
+        </div>
+    </div>
+
+    <!-- 30 ANOS -->
+
+    <div class="container left">
+        <div class="content">
+
+            <span class="icon">🔑🏡</span>
+
+            <div class="number">03 • MINHA ESTABILIDADE</div>
+
+            <h2>30 anos</h2>
+
+           
+
+            <p>
+                Me imagino com minha casa própria, tendo uma
+                estabilidade profissional, talvez ter outro filho, viajando com minha família,
+                conhecendo lugares novos e aproveitando
+                tudo que conquistei.
+            </p>
+
+        </div>
+    </div>
+
+    <!-- 40 ANOS -->
+
+    <div class="container right">
+        <div class="content">
+
+            <span class="icon">👨‍👩‍👧‍👦🌟 </span>
+
+            <div class="number">04 • MINHA REALIZAÇÃO</div>
+
+            <h2>40 anos</h2>
+
+          
+
+            <p>
+                Me imagino realizada profissionalmente,
+                feliz com minhas escolhas, perto das pessoas
+                que amo e vivendo uma vida tranquila.
+            </p>
+
+        </div>
+    </div>
+
+    <!-- 50 ANOS -->
+
+    <div class="container left">
+        <div class="content">
+
+            <span class="icon">👵🏻👴🏻 </span>
+
+            <div class="number">05 • MINHA HISTÓRIA</div>
+
+            <h2>50 anos+</h2>
+
+         
+
+            <p>
+                Me imagino aposentada, sentada na minha cadeira de balanço com meu marido, tomando chimamarrão e
+                reconhecendo minhas conquistas.
+            </p>
+
+        </div>
+    </div>
+
+</section>
+
+<footer>
+
+    <div class="heart">💙</div>
+
+    <h2>O melhor ainda está por vir!</h2>
+
+    <p>
+        Que nunca me faltem sonhos para realizar,<br>
+        coragem para seguir e motivos para agradecer.
+    </p>
+
+</footer>
+
+</body>
+</html>
+
